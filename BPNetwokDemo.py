@@ -51,11 +51,10 @@ max_epoch = 100000
 error_goal = 0.01
 plt.figure('target & process')
 
-
 for i in range(max_epoch):
     if (SSE(e) < error_goal):
         break
-    if (i%5000 == 0):
+    if (i % 5000 == 0):
         plt.plot(p[0], a2[0])
     dw2 = eta * np.dot(e, a1.T)
     db2 = eta * e.sum()
