@@ -34,10 +34,10 @@ t = np.array([[-0.96, -0.577, -0.0729, 0.377, 0.641, 0.66, 0.461, 0.1336, -0.201
 
 s1 = 5
 
-rdm = np.random.RandomState(1)
-w1 = 1 - 2 * rdm.random_sample((s1, 1))
+rdm = np.random.RandomState(10)
+w1 = (1 - 2 * rdm.random_sample((s1, 1))) * 10  # 权值的量级为s1根号r（s为隐含层神经元数，r为输入节点数）
 b1 = 1 - 2 * rdm.random_sample((s1, 1))
-w2 = 1 - 2 * rdm.random_sample((1, s1))
+w2 = (1 - 2 * rdm.random_sample((1, s1))) * 10
 b2 = 1 - 2 * rdm.random_sample()
 
 # random_samplew1 = 1 - 2 * np.random.random_sample((5, 1))
@@ -50,7 +50,7 @@ a2 = np.dot(w2, a1) + b2
 e = t - a2
 print e
 
-eta = 0.02
+eta = 0.016
 max_epoch = 100000
 error_goal = 0.01
 plt.figure('target & process')
