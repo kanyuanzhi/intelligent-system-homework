@@ -52,6 +52,5 @@ print 'w1 = ', w1
 print 'b1 = ', b1
 print 'w2 = ', w2
 print 'b2 = ', b2
-#huihdsiufjdshfhjdsf
 
 
