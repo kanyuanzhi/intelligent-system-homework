@@ -32,27 +32,32 @@ t = np.array([[-0.96, -0.577, -0.0729, 0.377, 0.641, 0.66, 0.461, 0.1336, -0.201
 # w2 = np.random.randn(1, 5)
 # b2 = np.random.randn()
 
-w1 = 1 - 2 * np.random.random_sample((5, 1))
-b1 = 1 - 2 * np.random.random_sample((5, 1))
-w2 = 1 - 2 * np.random.random_sample((1, 5))
-b2 = 1 - 2 * np.random.random_sample()
+s1 = 5
 
-print w1
-print b1
-print w2
-print b2
+rdm = np.random.RandomState(23424)
+w1 = 1 - 2 * rdm.random_sample((s1, 1))
+b1 = 1 - 2 * rdm.random_sample((s1, 1))
+w2 = 1 - 2 * rdm.random_sample((1, s1))
+b2 = 1 - 2 * rdm.random_sample()
+
+# w1 = 1 - 2 * np.random.random_sample((5, 1))
+# b1 = 1 - 2 * np.random.random_sample((5, 1))
+# w2 = 1 - 2 * np.random.random_sample((1, 5))
+# b2 = 1 - 2 * np.random.random_sample()
 
 a1 = tansig(np.dot(w1, p) + b1)
 a2 = np.dot(w2, a1) + b2
 e = t - a2
 
-eta = 0.014
+eta = 0.01
 max_epoch = 100000
 error_goal = 0.01
 plt.figure('target & process')
 
 for i in range(max_epoch):
     if (SSE(e) < error_goal):
+        break
+    if (SSE(e) > 20):
         break
     if (i % 5000 == 0):
         plt.plot(p[0], a2[0])
