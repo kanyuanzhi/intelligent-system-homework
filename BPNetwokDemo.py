@@ -48,7 +48,7 @@ b2 = 1 - 2 * rdm.random_sample()
 a1 = tansig(np.dot(w1, p) + b1)
 a2 = np.dot(w2, a1) + b2
 e = t - a2
-print e
+SSETemp = SSE(e)
 
 eta = 0.016
 max_epoch = 100000
@@ -58,6 +58,16 @@ plt.figure('target & process')
 for i in range(max_epoch):
     if (SSE(e) < error_goal):
         break
+
+    # 自适应学习速率eta
+    if (SSE(e) < SSETemp):
+        eta = 1.05 * eta
+    elif (SSE(e) > SSETemp):
+        eta = 0.7 * eta
+    else:
+        eta = eta
+    SSETemp = SSE(e)
+    ##################
     # if (SSE(e) > 20):
     #     break
     # if (i % 5000 == 0):
