@@ -122,11 +122,10 @@ for epoch in range(max_epoch):
 
 print epoch
 print 'SSE(e) = ', SSE(e)
-print dw2
-# print 'w1 = ', w1
-# print 'b1 = ', b1
-# print 'w2 = ', w2
-# print 'b2 = ', b2
+print 'w1 = ', w1
+print 'b1 = ', b1
+print 'w2 = ', w2
+print 'b2 = ', b2
 
 # at1 = tansig(np.dot(w1, [[1], [-1]]) + b1)
 # at2 = np.dot(w2, at1) + b2
