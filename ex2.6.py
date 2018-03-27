@@ -55,6 +55,7 @@ t = t.astype('int')
 print '输入p = '
 print p
 print t
+# jsjssshdjskhfds
 
 s1 = 10
 
